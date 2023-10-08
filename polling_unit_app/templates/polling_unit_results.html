@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Results for Polling Unit: {{ polling_unit.name }}</h2>
+    <ul>
+        {% for result in results %}
+            <li>Result: {{ result.result }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'home' %}">Back to Home</a>
+{% endblock %}

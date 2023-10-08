@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Summed Total Result by Local Government</h2>
+    <form method="get">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit">
+    </form>
+    <br>
+    {% if selected_lga_id %}
+        <h3>Selected Local Government: {{ lgas|get_item:selected_lga_id }}</h3>
+        <p>Total Result: {{ total_result }}</p>
+    {% endif %}
+    <a href="{% url 'home' %}">Back to Home</a>
+{% endblock %}
